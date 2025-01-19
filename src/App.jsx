@@ -1,12 +1,16 @@
 import React from "react";
-
+import Dictionary from "./Dictionary.jsx";
 import "./App.css";
 
 function App() {
   return (
     <div>
-      <header className="App-Header"></header>
-      <h1>My Dictionary Project</h1>
+      <div className="container">
+        <header className="App-Header"></header>
+        <h1>My Dictionary App</h1>
+        <Dictionary />
+      </div>
+
       <footer>
         This page was coded by Deborah Chacko is open-sourced on{" "}
         <a

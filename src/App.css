@@ -5,8 +5,13 @@ h1 {
   color: navy;
 }
 
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
 a {
   color: navy;
-  text-align: center;
+
   font-weight: bold;
 }
