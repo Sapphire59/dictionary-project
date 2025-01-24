@@ -1,6 +1,6 @@
 import React from "react";
 
-import Meaning from "./Meaning";
+import Meaning from "./Meaning.jsx";
 
 function Results(props) {
   if (props.results) {
