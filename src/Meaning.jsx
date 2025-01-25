@@ -4,8 +4,8 @@ import Synonyms from "./Synonyms.jsx";
 
 function Meaning(props) {
   return (
-    <div>
-      <h3>{props.meaning.partOfSpeech}</h3>;
+    <div className="Meaning">
+      <h3>{props.meaning.partOfSpeech}</h3>
       {props.meaning.definitions.map(function (definition, index) {
         return (
           <div key={index}>
@@ -15,7 +15,7 @@ function Meaning(props) {
               <br />
               <strong>Example: </strong>
               <em>{definition.example}</em>
-              <Synonyms synonyms={definition.synonyms} />
+              <Synonyms synonyms={props.meaning.synonyms} />
             </p>
           </div>
         );
