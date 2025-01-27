@@ -1,14 +1,15 @@
 import React from "react";
 import Dictionary from "./Dictionary.jsx";
 import "./App.css";
+import "./index.css";
 
 function App() {
   return (
     <div>
       <div className="container">
         <header className="App-Header"></header>
-        <h1>Dictionary App</h1>
-        <Dictionary />
+        <h1>React Dictionary App</h1>
+        <Dictionary defaultKeyword="sunset" />
       </div>
 
       <footer>
