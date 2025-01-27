@@ -9,10 +9,16 @@ import "./Results.css";
 function Results(props) {
   if (props.results) {
     return (
-      <div className="Result">
+      <div className="Results">
         <section>
-          <h1>{props.results.word}</h1>
-          <Phonetic phonetic={props.results.phonetic} />
+          <h2>{props.results.word}</h2>
+          {props.results.phonetics.map(function (phonetic, index) {
+            return (
+              <section key={index}>
+                <Phonetic phonetic={phonetic} />
+              </section>
+            );
+          })}
         </section>
 
         {props.results.meanings.map(function (meaning, index) {

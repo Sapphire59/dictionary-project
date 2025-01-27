@@ -32,7 +32,7 @@ function Dictionary(props) {
   }
 
   function search() {
-    let apiKey = "eac360db5fc86ft86450f3693e73o43f";
+    let apiKey = "7eot7c9e36304bbfae357f4a433400e3";
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
