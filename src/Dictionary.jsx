@@ -7,34 +7,33 @@ import Photos from "./Photos.jsx";
 import "./Dictionary.css";
 
 function Dictionary(props) {
-  let [keyword, setKeyword] = useState(props.defaultKeyword);
-
-  let [results, setResults] = useState(null);
-  const [definition, setDefinition] = useState(null);
-
-  let [loaded, setLoaded] = useState(false);
-
-  let { photos, setPhotos } = useState([]);
+  const [keyword, setKeyword] = useState(props.defaultKeyword);
+  const [loaded, setLoaded] = useState(false);
+  const [results, setResults] = useState(null);
+  const [photos, setPhotos] = useState([]);
 
   function handleImages(response) {
     setPhotos(response.data.photos);
   }
 
   function handleResponse(response) {
-    setDefinition(response.data);
+    setResults(response.data[0]);
 
     let apiKey = "7eot7c9e36304bbfae357f4a433400e3";
-
     let apiUrl = `https://api.shecodes.io/images/v1/search?query=${response.data.word}&key=${apiKey}`;
-
     axios
       .get(apiUrl, { headers: { Authorization: `Bearer ${apiKey}` } })
       .then(handleImages);
   }
 
-  function search() {
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+  function load() {
+    setLoaded(true);
+    search();
+  }
 
+  function search() {
+    let apiKey = "eac360db5fc86ft86450f3693e73o43f";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -47,36 +46,30 @@ function Dictionary(props) {
     setKeyword(event.target.value);
   }
 
-  function load() {
-    setLoaded(true);
-    search();
-  }
-
   if (loaded) {
     return (
       <div className="Dictionary">
         <section>
-          <h1>What word do you want to look up?</h1>
           <form onSubmit={handleSubmit}>
+            <label>What word do you want to look up?</label>
             <input
               type="search"
-              autoFocus={true}
-              onChange={handleKeywordChange}
+              placeholder="Search for a word"
               defaultValue={props.defaultKeyword}
+              autoFocus={true}
+              className="form-control search-input"
+              onChange={handleKeywordChange}
             />
           </form>
-
-          <div className="hint">i.e: sunset, animals, flowers, food...</div>
+          <small className="hint">i.e. sunrise, sports, food, birds</small>
         </section>
-
-        <Result definition={definition} />
-
+        <Results results={results} />
         <Photos photos={photos} />
       </div>
     );
   } else {
     load();
-    return "Loading";
+    return "Loading!";
   }
 }
 
