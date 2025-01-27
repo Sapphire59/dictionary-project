@@ -5,6 +5,8 @@ body {
 h1 {
   text-align: left;
   padding-top: 12px;
+  color: #5e366a;
+  font-size: 35px;
 }
 
 footer {
