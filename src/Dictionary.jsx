@@ -6,7 +6,6 @@ import Results from "./Results.jsx";
 import "./Dictionary.css";
 
 function Dictionary(props) {
-  console.log(handleKeywordChange);
   let [keyword, setKeyword] = useState("props.defaultKeyword ");
 
   let [results, setResults] = useState(null);
@@ -20,9 +19,10 @@ function Dictionary(props) {
   function search() {
     let apiKey = "7eot7c9e36304bbfae357f4a433400e3";
 
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
 
     axios.get(apiUrl).then(handleResponse);
+    console.log(apiUrl);
   }
 
   function handleSubmit(event) {
