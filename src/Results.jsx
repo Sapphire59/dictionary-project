@@ -11,23 +11,16 @@ function Results(props) {
     return (
       <div className="Results">
         <section>
-          <h2>{props.results.word}</h2>
-
-          {props.results.phonetics.map(function (phonetic, index) {
+          <h2>{props.definition.word}</h2>
+          <Phonetic phonetic={props.definition.phonetic} />
+          {props.definition.meanings.map(function (meaning, index) {
             return (
-              <div key={index}>
-                <Phonetic phonetic={phonetic} />
-              </div>
+              <section key={index}>
+                <Meaning meaning={meaning} />
+              </section>
             );
           })}
         </section>
-        {props.results.meanings.map(function (meaning, index) {
-          return (
-            <section key={index}>
-              <Meaning meaning={meaning} />
-            </section>
-          );
-        })}
       </div>
     );
   } else {
