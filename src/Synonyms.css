@@ -4,7 +4,10 @@
 }
 
 .Synonyms li {
-  display: inline-block;
-  padding-right: 10px;
   line-height: 1;
+  display: inline-block;
+  color: #bb5a5a;
+  margin: 4px;
+  font-weight: 500;
+  font-family: "Times New Roman", Times, serif;
 }
